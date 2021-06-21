@@ -2,7 +2,8 @@
 
 <JUCERPROJECT id="VzPTZd" name="SFZ2DS" projectType="consoleapp" jucerFormatVersion="1"
               companyName="David Hilowitz" companyWebsite="http://decided.ly"
-              companyEmail="dhilowitz@gmail.com" bundleIdentifier="ly.decided.SFZ2DS">
+              companyEmail="dhilowitz@gmail.com" bundleIdentifier="ly.decided.SFZ2DS"
+              version="1.1">
   <MAINGROUP id="TrF5L9" name="SFZ2DS">
     <GROUP id="{D15CB601-DF5B-A708-C6F1-CF9F4B3E7108}" name="Source">
       <FILE id="ESNjaJ" name="DSPresetMaker.cpp" compile="1" resource="0"
