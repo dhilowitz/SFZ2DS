@@ -18,9 +18,13 @@ public:
     String getXML() {
         return valueTree.toXmlString();
     }
+    
+    enum HeaderLevel {
+        headerLevelGlobal,
+        headerLevelGroup,
+        headerLevelRegion
+    };
 private:
     ValueTree valueTree;
-    
-    void translateSFZGroupProperties(ValueTree sfzGroup, ValueTree &dsGroup);
-    void translateSFZRegionProperties(ValueTree sfzRegion, ValueTree &dsSample);
+    void translateSFZRegionProperties(ValueTree sfzRegion, ValueTree &dsSample, HeaderLevel level);
 };
