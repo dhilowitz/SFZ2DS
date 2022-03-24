@@ -6,6 +6,8 @@
               version="1.1">
   <MAINGROUP id="TrF5L9" name="SFZ2DS">
     <GROUP id="{D15CB601-DF5B-A708-C6F1-CF9F4B3E7108}" name="Source">
+      <FILE id="JRc7V5" name="DSEXS24.cpp" compile="1" resource="0" file="Source/DSEXS24.cpp"/>
+      <FILE id="i9Fq0y" name="DSEXS24.h" compile="0" resource="0" file="Source/DSEXS24.h"/>
       <FILE id="ESNjaJ" name="DSPresetConverter.cpp" compile="1" resource="0"
             file="Source/DSPresetConverter.cpp"/>
       <FILE id="Z6hCeR" name="DSPresetConverter.h" compile="0" resource="0"

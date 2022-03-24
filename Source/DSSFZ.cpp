@@ -100,14 +100,13 @@ void DSSFZ::parseFromFile(File file) {
             default:
                 if (tokenString.isNotEmpty())
                 {
-                    switch (tokenType)
-                    {
-                    case HEADER:
-                        pushHeader(tokenString.trim());
-                        break;
-                    case OPCODE:
-                        pushOpcode(tokenString.trim());
-                        break;
+                    switch (tokenType) {
+                        case HEADER:
+                            pushHeader(tokenString.trim());
+                            break;
+                        case OPCODE:
+                            pushOpcode(tokenString.trim());
+                            break;
                     }
                     tokenString.clear();
                 }
@@ -134,7 +133,27 @@ void DSSFZ::parseFromFile(File file) {
                     token = opcodeString;
                 } else if(opcodeStringTokens.size() >= 2){
                     String key = opcodeStringTokens[0];
-                    String value = opcodeStringTokens[1].upToLastOccurrenceOf(" ", false, false);
+                    int lastSpace = opcodeStringTokens[1].lastIndexOfChar(' ');
+                    int lastNNewLineChar = opcodeStringTokens[1].lastIndexOfChar('\n');
+                    int lastRNewlineChar = opcodeStringTokens[1].lastIndexOfChar('\r');
+                    
+                    
+                    auto chooseFirstViableIndex = [](int num1, int num2){
+                        if(num1 == -1) return num2;
+                        if(num2 == -1) return num1;
+                        return juce::jmin(num1, num2);
+                    };
+                    
+                    int endOfValue = lastSpace;
+                    endOfValue = chooseFirstViableIndex(endOfValue, lastNNewLineChar);
+                    endOfValue = chooseFirstViableIndex(endOfValue, lastRNewlineChar);
+                    
+                    if(endOfValue < 1) {
+                        fprintf(stderr, "ERROR: Unable to determine the end of the opcode's value.\n");
+                        break;
+                    }
+                    
+                    String value = opcodeStringTokens[1].substring(0, endOfValue);
                     token = key + "=" + value;
                 }
                 
@@ -175,6 +194,11 @@ void DSSFZ::pushHeader(String token) {
     {
         currentSection = REGION;
         currentRegion = ValueTree("region");
+        if(!currentGroup.isValid()) {
+            currentSection = GROUP;
+            currentGroup = ValueTree("group");
+            valueTree.appendChild(currentGroup, nullptr);
+        }
         currentGroup.appendChild(currentRegion, nullptr);
     } else
     {
