@@ -8,9 +8,9 @@
   ==============================================================================
 */
 
-#include "DSPresetMaker.h"
+#include "DSPresetConverter.h"
 
-void DSPresetMaker::parseSFZValueTree(ValueTree sfz) {
+void DSPresetConverter::parseSFZValueTree(ValueTree sfz) {
     valueTree = ValueTree("DecentSampler");
     valueTree.setProperty("pluginVersion", 1, nullptr);
     ValueTree groupsVT = ValueTree("groups");
@@ -31,7 +31,7 @@ void DSPresetMaker::parseSFZValueTree(ValueTree sfz) {
     }
 }
 
-void DSPresetMaker::translateSFZRegionProperties(ValueTree sfzRegion, ValueTree &dsEntity, HeaderLevel level) {
+void DSPresetConverter::translateSFZRegionProperties(ValueTree sfzRegion, ValueTree &dsEntity, HeaderLevel level) {
     for (int i = 0; i < sfzRegion.getNumProperties(); i++) {
         String key = sfzRegion.getPropertyName(i).toString();
         var value =      sfzRegion.getProperty(key);

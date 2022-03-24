@@ -10,7 +10,7 @@
 
 #include <JuceHeader.h>
 #include "DSSFZ.h"
-#include "DSPresetMaker.h"
+#include "DSPresetConverter.h"
 
 //==============================================================================
 int main (int argc, char* argv[])
@@ -30,7 +30,7 @@ int main (int argc, char* argv[])
     DSSFZ sfz;
     sfz.parseFromFile(inputFile);
     
-    DSPresetMaker presetMaker;
+    DSPresetConverter presetMaker;
     presetMaker.parseSFZValueTree(sfz.getValueTree());
     DBG(presetMaker.getXML());
     

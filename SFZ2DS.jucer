@@ -6,9 +6,10 @@
               version="1.1">
   <MAINGROUP id="TrF5L9" name="SFZ2DS">
     <GROUP id="{D15CB601-DF5B-A708-C6F1-CF9F4B3E7108}" name="Source">
-      <FILE id="ESNjaJ" name="DSPresetMaker.cpp" compile="1" resource="0"
-            file="Source/DSPresetMaker.cpp"/>
-      <FILE id="Z6hCeR" name="DSPresetMaker.h" compile="0" resource="0" file="Source/DSPresetMaker.h"/>
+      <FILE id="ESNjaJ" name="DSPresetConverter.cpp" compile="1" resource="0"
+            file="Source/DSPresetConverter.cpp"/>
+      <FILE id="Z6hCeR" name="DSPresetConverter.h" compile="0" resource="0"
+            file="Source/DSPresetConverter.h"/>
       <FILE id="oLiRTR" name="DSSFZ.cpp" compile="1" resource="0" file="Source/DSSFZ.cpp"/>
       <FILE id="l1IPf8" name="DSSFZ.h" compile="0" resource="0" file="Source/DSSFZ.h"/>
       <FILE id="RNno6E" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>

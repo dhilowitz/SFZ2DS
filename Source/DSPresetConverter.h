@@ -12,7 +12,7 @@
 
 #include <JuceHeader.h>
 
-class DSPresetMaker {
+class DSPresetConverter {
 public:
     void parseSFZValueTree(ValueTree valueTree);
     String getXML() {
